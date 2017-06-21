@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FuncionarioViewDlg" widgetVar="FuncionarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFuncionarioTitle}">
+            <h:form id="FuncionarioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funccodigo}"/>
+                        <h:outputText value="#{funcionarioController.selected.funccodigo}" title="#{bundle.ViewFuncionarioTitle_funccodigo}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funcnome}"/>
+                        <h:outputText value="#{funcionarioController.selected.funcnome}" title="#{bundle.ViewFuncionarioTitle_funcnome}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funcnascimento}"/>
+                        <h:outputText value="#{funcionarioController.selected.funcnascimento}" title="#{bundle.ViewFuncionarioTitle_funcnascimento}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funccpf}"/>
+                        <h:outputText value="#{funcionarioController.selected.funccpf}" title="#{bundle.ViewFuncionarioTitle_funccpf}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funccel}"/>
+                        <h:outputText value="#{funcionarioController.selected.funccel}" title="#{bundle.ViewFuncionarioTitle_funccel}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funcendereco}"/>
+                        <h:outputText value="#{funcionarioController.selected.funcendereco}" title="#{bundle.ViewFuncionarioTitle_funcendereco}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funcbairro}"/>
+                        <h:outputText value="#{funcionarioController.selected.funcbairro}" title="#{bundle.ViewFuncionarioTitle_funcbairro}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funccidade}"/>
+                        <h:outputText value="#{funcionarioController.selected.funccidade}" title="#{bundle.ViewFuncionarioTitle_funccidade}"/>
+                        <h:outputText value="#{bundle.ViewFuncionarioLabel_funcemail}"/>
+                        <h:outputText value="#{funcionarioController.selected.funcemail}" title="#{bundle.ViewFuncionarioTitle_funcemail}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FuncionarioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

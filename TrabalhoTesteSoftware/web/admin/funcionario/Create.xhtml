@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FuncionarioCreateDlg" widgetVar="FuncionarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFuncionarioTitle}">
+            <h:form id="FuncionarioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
+                        
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funcnome}" for="funcnome" />
+                        <p:inputText id="funcnome" value="#{funcionarioController.selected.funcnome}" title="#{bundle.CreateFuncionarioTitle_funcnome}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funcnome}"/>
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funcnascimento}" for="funcnascimento" />
+                        <p:inputText id="funcnascimento" value="#{funcionarioController.selected.funcnascimento}" title="#{bundle.CreateFuncionarioTitle_funcnascimento}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funcnascimento}"/>
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funccpf}" for="funccpf" />
+                        <p:inputText id="funccpf" value="#{funcionarioController.selected.funccpf}" title="#{bundle.CreateFuncionarioTitle_funccpf}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funccpf}"/>
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funccel}" for="funccel" />
+                        <p:inputText id="funccel" value="#{funcionarioController.selected.funccel}" title="#{bundle.CreateFuncionarioTitle_funccel}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funccel}"/>
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funcendereco}" for="funcendereco" />
+                        <p:inputText id="funcendereco" value="#{funcionarioController.selected.funcendereco}" title="#{bundle.CreateFuncionarioTitle_funcendereco}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funcendereco}"/>
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funcbairro}" for="funcbairro" />
+                        <p:inputText id="funcbairro" value="#{funcionarioController.selected.funcbairro}" title="#{bundle.CreateFuncionarioTitle_funcbairro}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funcbairro}"/>
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funccidade}" for="funccidade" />
+                        <p:inputText id="funccidade" value="#{funcionarioController.selected.funccidade}" title="#{bundle.CreateFuncionarioTitle_funccidade}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funccidade}"/>
+                        <p:outputLabel value="#{bundle.CreateFuncionarioLabel_funcemail}" for="funcemail" />
+                        <p:inputText id="funcemail" value="#{funcionarioController.selected.funcemail}" title="#{bundle.CreateFuncionarioTitle_funcemail}" required="true" requiredMessage="#{bundle.CreateFuncionarioRequiredMessage_funcemail}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{funcionarioController.create}" value="#{bundle.Save}" update="display,:FuncionarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'FuncionarioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FuncionarioCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

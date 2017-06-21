@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FuncionarioEditDlg" widgetVar="FuncionarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFuncionarioTitle}">
+            <h:form id="FuncionarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{funcionarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funccodigo}" for="funccodigo" />
+                        <p:inputText id="funccodigo" value="#{funcionarioController.selected.funccodigo}" disabled="true"
+                                     title="#{bundle.EditFuncionarioTitle_funccodigo}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funccodigo}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funcnome}" for="funcnome" />
+                        <p:inputText id="funcnome" value="#{funcionarioController.selected.funcnome}" title="#{bundle.EditFuncionarioTitle_funcnome}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funcnome}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funcnascimento}" for="funcnascimento" />
+                        <p:inputText id="funcnascimento" value="#{funcionarioController.selected.funcnascimento}" title="#{bundle.EditFuncionarioTitle_funcnascimento}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funcnascimento}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funccpf}" for="funccpf" />
+                        <p:inputText id="funccpf" value="#{funcionarioController.selected.funccpf}" title="#{bundle.EditFuncionarioTitle_funccpf}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funccpf}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funccel}" for="funccel" />
+                        <p:inputText id="funccel" value="#{funcionarioController.selected.funccel}" title="#{bundle.EditFuncionarioTitle_funccel}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funccel}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funcendereco}" for="funcendereco" />
+                        <p:inputText id="funcendereco" value="#{funcionarioController.selected.funcendereco}" title="#{bundle.EditFuncionarioTitle_funcendereco}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funcendereco}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funcbairro}" for="funcbairro" />
+                        <p:inputText id="funcbairro" value="#{funcionarioController.selected.funcbairro}" title="#{bundle.EditFuncionarioTitle_funcbairro}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funcbairro}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funccidade}" for="funccidade" />
+                        <p:inputText id="funccidade" value="#{funcionarioController.selected.funccidade}" title="#{bundle.EditFuncionarioTitle_funccidade}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funccidade}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionarioLabel_funcemail}" for="funcemail" />
+                        <p:inputText id="funcemail" value="#{funcionarioController.selected.funcemail}" title="#{bundle.EditFuncionarioTitle_funcemail}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_funcemail}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{funcionarioController.update}" value="#{bundle.Save}" update="display,:FuncionarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FuncionarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FuncionarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
